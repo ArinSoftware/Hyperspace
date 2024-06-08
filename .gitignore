@@ -1,0 +1,40 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyd
+
+# Virtual environment
+h_env/
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# Environment variables
+.env
+
+# IDEs and editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+# Pytest
+.pytest_cache/
+htmlcov/
+.tox/
+.coverage
+.cache
