@@ -2,10 +2,9 @@ from django.db import models
 from django.utils.text import slugify
 
 class Service(models.Model):
-    title = models.CharField(max_length=200, blank=False, null=False)
-    image_url = models.URLField(max_length=200)
+    title = models.CharField(max_length=200, blank=False)
+    image_url = models.URLField(max_length=200, blank=True, null=True)
     description = models.TextField()
-    learn_more_link = models.URLField(max_length=200, blank=True)
     slug = models.SlugField(unique=True, blank=False)
 
     def __str__(self):
