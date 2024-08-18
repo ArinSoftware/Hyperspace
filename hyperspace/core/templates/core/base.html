@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+    {%  include 'core/partials/header.html' %}
+
+	<body class="is-preload">
+
+		<!-- Sidebar -->
+        {%  include 'core/partials/sidebar.html' %}
+
+		<!-- Wrapper -->
+        <div id="wrapper">
+            {% block content %} {% endblock %}
+        </div>
+
+        {%  include 'core/partials/footer.html' %}
+
+	</body>
+</html>
