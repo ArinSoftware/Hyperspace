@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from datetime import datetime
+from services.models import Service
+
 
 def index(request):
 
@@ -13,9 +14,12 @@ def index(request):
 			</ul>
 		</div>
     """
+	
+    featured_services = Service.objects.filter(is_featured=True)
 
     context = {
-        'static_content': static_content
+        'static_content': static_content,
+        'featured_services': featured_services
     }
 
     return render(request, 'core/index.html', context)
