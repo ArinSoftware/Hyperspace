@@ -21,31 +21,26 @@
 				<nav>
 					<ul>
 						<li><a href="{% url 'index' %}">Home</a></li>
-						<li><a href="{% url 'service_list' %}" class="active">Services</a></li>
+						<li><a href="{% url 'service_list' %}">Services</a></li>
+						<li><a href="{% url 'service_detail' service.slug %}" class="active">{{service.title}}</a></li>
 					</ul>
 				</nav>
 			</header>
 
 		<!-- Wrapper -->
-        <div id="wrapper">
-            <!-- Main -->
-            <section id="main" class="wrapper">
-                <div class="inner">
-                    <div class="features">
+			<div id="wrapper">
 
-                        {% for service in services %}
-						<a href="{% url 'service_detail' service.slug %}">
-							<section style="width: 100%;">
-								<span class="{{service.icon_class}}"></span>
-								<h3>{{ service.title}}</h3>
-								<p>{{ service.description|truncatechars:100 }}</p>
-							</section>
-						</a>
-                        {% endfor %}
-                    </div>
-                </div>
-            </section>
-        </div>
+				<!-- Main -->
+					<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major">{{service.title}}</h1>
+							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
+							<p>{{service.description}}</p>
+							
+						</div>
+					</section>
+
+			</div>
 
 		<!-- Footer -->
 			<footer id="footer" class="wrapper alt">

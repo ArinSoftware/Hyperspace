@@ -15,11 +15,15 @@
 		<div class="features">
 
 			{% for service in featured_services %}
-			<section>
-				<span class="{{service.icon_class}}"></span>
-				<h3>{{ service.title}}</h3>
-				<p>{{ service.description }}</p>
-			</section>
+			
+				<section>
+					<a href="{% url 'service_detail' service.slug %}">
+						<span class="{{service.icon_class}}"></span>
+						<h3>{{ service.title}}</h3>
+						<p>{{ service.description|truncatechars:100 }}</p>
+					</a>
+				</section>
+			
 			{% endfor %}
 
 
