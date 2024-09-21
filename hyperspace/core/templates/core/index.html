@@ -38,42 +38,29 @@
 
 <!-- Two -->
 <section id="two" class="wrapper style2 spotlights">
+
+
+	{% for post in latest_posts %}
 	<section>
-		<a href="#" class="image"><img src="{% static 'images/pic01.jpg' %}" alt="" data-position="center center" /></a>
+		<a href="{% url 'post_detail' post.slug %}" class="image">
+			{% if "http" in post.image%}
+				<img src="{{ post.image }}" alt="" data-position="center center" />
+			{% else %}
+				<img src="{% static 'images/pic01.jpg' %}" alt="" data-position="center center" />
+			{% endif %}
+		</a>
 		<div class="content">
 			<div class="inner">
-				<h2>Sed ipsum dolor</h2>
-				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+				<h2>{{post.title}}</h2>
+				<p>{{post.content|truncatechars:200 }}</p>
 				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
+					<li><a href="{% url 'post_detail' post.slug %}" class="button">Learn more</a></li>
 				</ul>
 			</div>
 		</div>
 	</section>
-	<section>
-		<a href="#" class="image"><img src="{% static 'images/pic02.jpg' %}" alt="" data-position="top center" /></a>
-		<div class="content">
-			<div class="inner">
-				<h2>Feugiat consequat</h2>
-				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
-				</ul>
-			</div>
-		</div>
-	</section>
-	<section>
-		<a href="#" class="image"><img src="{% static 'images/pic03.jpg' %}" alt="" data-position="25% 25%" /></a>
-		<div class="content">
-			<div class="inner">
-				<h2>Ultricies aliquam</h2>
-				<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-				<ul class="actions">
-					<li><a href="generic.html" class="button">Learn more</a></li>
-				</ul>
-			</div>
-		</div>
-	</section>
+	{% endfor %}
+
 </section>
 
 <!-- Three -->
